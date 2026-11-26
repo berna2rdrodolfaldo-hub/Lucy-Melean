@@ -145,3 +145,64 @@ if (audioDetalle && tituloDetalle) {
     if (btnControl) btnControl.textContent = 'Reproducir';
   });
 }
+
+const MAPA_IMAGENES_CANCION = {
+  'afuera del planeta': '../fondo/Afuera del planeta.png',
+  'bajo el agua': '../fondo/Bajo el agua.png',
+  'como hacer para olvidarte': '../fondo/comohacerparaolvidate.png',
+  'cuando te pensaba': '../fondo/cuandotepensaba.png',
+  'delincuentes': '../fondo/delincuentes.png',
+  'felicidad': '../fondo/felicidad.png',
+  'hace tiempo': '../fondo/hacetiempo.png',
+  'hay una luz dentro de ti': '../fondo/hayunaluzdentrodeti.png',
+  'junto a mi': '../fondo/juntoami.png',
+  'la mujer que bota fuego': '../fondo/lamujerquebotafuego.png',
+  'mariposas en el pecho': '../fondo/mariposasenelpecho.png',
+  'mas alla': '../fondo/masalla.png',
+  'más allá': '../fondo/masalla.png',
+  'me gustas': '../fondo/megustas.png',
+  'mucho mas que ayer': '../fondo/muchomasqueayer.png',
+  'mucho más que ayer': '../fondo/muchomasqueayer.png',
+  'negra': '../fondo/negra.png',
+  'primavera': '../fondo/blueandsoft - album.png',
+  'blueandsoft': '../fondo/blueandsoft - album.png',
+  'si pudiera': '../fondo/sipudiera.png',
+  'sin saber por que': '../fondo/sinsaberporque.png',
+  'sin saber por qué': '../fondo/sinsaberporque.png',
+  'swing de la propuesta': '../fondo/swingdelapropuesta.png',
+  'una y otra vez': '../fondo/unayotravez.png',
+  'yo solo nado contigo': '../fondo/yosolonadocontigo.png'
+};
+
+function obtenerRutaImagenCancion(textoCancion = '') {
+  const limpio = textoCancion
+    .toLowerCase()
+    .replace(/\.mp4$|\.mp3$/i, '')
+    .replace(/spotidownloader\.com\s*-\s*/i, '')
+    .replace(/manuel medrano\s*-\s*/i, '')
+    .replace(/\(.*?\)/g, '')
+    .trim();
+
+  if (MAPA_IMAGENES_CANCION[limpio]) {
+    return MAPA_IMAGENES_CANCION[limpio];
+  }
+
+  const claveEncontrada = Object.keys(MAPA_IMAGENES_CANCION).find((clave) =>
+    limpio.includes(clave)
+  );
+
+  return claveEncontrada ? MAPA_IMAGENES_CANCION[claveEncontrada] : '';
+}
+
+const imgCancionDetalle = document.getElementById('imagen-cancion');
+if (imgCancionDetalle) {
+  const referencia =
+    (typeof cancionActual !== 'undefined' && cancionActual) ||
+    document.getElementById('titulo-cancion')?.textContent ||
+    '';
+  const rutaImg = obtenerRutaImagenCancion(referencia);
+  if (rutaImg) {
+    imgCancionDetalle.src = encodeURI(rutaImg);
+    imgCancionDetalle.style.display = 'block';
+  }
+}

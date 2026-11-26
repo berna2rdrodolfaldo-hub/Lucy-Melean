@@ -1,0 +1,317 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("../fondo/van gogh musica.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: static;
+}
+
+/* Encabezado sutil tipo cristal */
+.cabecera-musica {
+  width: 100%;
+  margin-bottom: 22px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: rgba(14, 16, 22, 0.58);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cabecera-musica h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+}
+
+.cabecera-musica .subtitulo-musica {
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Cuadrícula de 7 columnas x 3 filas = 21 elementos */
+.grid-musica {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 14px;
+  width: 100%;
+}
+
+.cuadro-musica {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: rgba(15, 17, 23, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(2px);
+  transition: transform 0.22s ease, background-color 0.22s ease, color 0.22s ease,
+    border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.cuadro-musica::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.14) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.cuadro-musica:hover {
+  transform: translateY(-4px) scale(1.03);
+  background-color: #ffffff;
+  color: #111111;
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.48);
+}
+
+.cuadro-musica.sonando {
+  transform: translateY(-4px) scale(1.04);
+  background-color: #ffffff;
+  color: #111111;
+  border-color: #ffd166;
+  animation: pulso-sonando 1.6s ease-in-out infinite;
+}
+
+@keyframes pulso-sonando {
+  0%, 100% {
+    box-shadow: 0 0 0 2px rgba(255, 209, 102, 0.38), 0 14px 30px rgba(0, 0, 0, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(255, 209, 102, 0.16), 0 16px 34px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.cuadro-musica .num {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
+}
+
+.cuadro-musica .etiqueta {
+  font-size: 0.78rem;
+  line-height: 1.2;
+  opacity: 0.92;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+/* Portadas de álbumes en los cuadros */
+.cuadro-musica.portada-medrano {
+  background-image: linear-gradient(rgba(10, 10, 10, 0.52), rgba(10, 10, 10, 0.65)),
+    url("../fondo/manuel medrano album.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+}
+
+.cuadro-musica.portada-medrano:hover,
+.cuadro-musica.portada-medrano.sonando {
+  background-image: linear-gradient(rgba(10, 10, 10, 0.25), rgba(10, 10, 10, 0.35)),
+    url("../fondo/manuel medrano album.png");
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.cuadro-musica.portada-distancia {
+  background-image: linear-gradient(rgba(10, 10, 10, 0.52), rgba(10, 10, 10, 0.65)),
+    url("../fondo/Manuel medrano Distancia album.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+}
+
+.cuadro-musica.portada-distancia:hover,
+.cuadro-musica.portada-distancia.sonando {
+  background-image: linear-gradient(rgba(10, 10, 10, 0.25), rgba(10, 10, 10, 0.35)),
+    url("../fondo/Manuel medrano Distancia album.png");
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.cuadro-musica.portada-perfecto {
+  background-image: linear-gradient(rgba(10, 10, 10, 0.52), rgba(10, 10, 10, 0.65)),
+    url("../fondo/manuel medrano perfecto.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+}
+
+.cuadro-musica.portada-perfecto:hover,
+.cuadro-musica.portada-perfecto.sonando {
+  background-image: linear-gradient(rgba(10, 10, 10, 0.25), rgba(10, 10, 10, 0.35)),
+    url("../fondo/manuel medrano perfecto.png");
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.cuadro-musica.portada-superior {
+  background-image: linear-gradient(rgba(10, 10, 10, 0.52), rgba(10, 10, 10, 0.65)),
+    url("../fondo/manuel medrano superior.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+}
+
+.cuadro-musica.portada-superior:hover,
+.cuadro-musica.portada-superior.sonando {
+  background-image: linear-gradient(rgba(10, 10, 10, 0.25), rgba(10, 10, 10, 0.35)),
+    url("../fondo/manuel medrano superior.png");
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.cuadro-musica.portada-medrano:hover .num,
+.cuadro-musica.portada-medrano:hover .etiqueta,
+.cuadro-musica.portada-medrano.sonando .num,
+.cuadro-musica.portada-medrano.sonando .etiqueta,
+.cuadro-musica.portada-distancia:hover .num,
+.cuadro-musica.portada-distancia:hover .etiqueta,
+.cuadro-musica.portada-distancia.sonando .num,
+.cuadro-musica.portada-distancia.sonando .etiqueta,
+.cuadro-musica.portada-perfecto:hover .num,
+.cuadro-musica.portada-perfecto:hover .etiqueta,
+.cuadro-musica.portada-perfecto.sonando .num,
+.cuadro-musica.portada-perfecto.sonando .etiqueta,
+.cuadro-musica.portada-superior:hover .num,
+.cuadro-musica.portada-superior:hover .etiqueta,
+.cuadro-musica.portada-superior.sonando .num,
+.cuadro-musica.portada-superior.sonando .etiqueta {
+  color: #ffffff;
+}
+.cuadro-musica.portada-blueandsoft {
+  background-image: linear-gradient(rgba(10, 10, 10, 0.52), rgba(10, 10, 10, 0.65)),
+    url("../fondo/Blueandsoft - album.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+}
+
+.cuadro-musica.portada-blueandsoft:hover,
+.cuadro-musica.portada-blueandsoft.sonando {
+  background-image: linear-gradient(rgba(10, 10, 10, 0.25), rgba(10, 10, 10, 0.35)),
+    url("../fondo/Blueandsoft - album.png");
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.cuadro-musica.portada-blueandsoft:hover .num,
+.cuadro-musica.portada-blueandsoft:hover .etiqueta,
+.cuadro-musica.portada-blueandsoft.sonando .num,
+.cuadro-musica.portada-blueandsoft.sonando .etiqueta {
+  color: #ffffff;
+}
+
+/* Botón inferior hacia habla */
+.zona-siguiente {
+  position: static;
+  clear: both;
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.zona-siguiente .boton-siguiente {
+  padding: 11px 24px;
+  border-radius: 999px;
+  background: rgba(14, 16, 22, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.zona-siguiente .boton-siguiente:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.92);
+  color: #111111;
+  border-color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .grid-musica {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.recuadro-reto {
+  grid-column: span 6;
+  width: 100%;
+  height: 100%;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  background: rgba(14, 16, 22, 0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.32);
+}
+
+.recuadro-reto .texto-reto {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
+}
+
+@media (max-width: 900px) {
+  .recuadro-reto {
+    grid-column: span 2;
+  }
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("../fondo/van gogh musica.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

@@ -1,23 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lu - Canción</title>
+  <title>La Mujer Que Bota Fuego</title>
   <link rel="stylesheet" href="../styles-css/global.css" />
+  <link rel="stylesheet" href="../styles-css/musica.css" />
 </head>
 <body>
+  <main class="detalle-cancion">
+    <div class="recuadro-imagen-cancion">
+      <img id="imagen-cancion" src="" alt="Portada y letra de la canción" />
+    </div>
 
-  <main class="contenedor">
-    <h1 id="titulo-detalle">Canción</h1>
-
-    <button id="btn-control-audio" class="boton" style="cursor: pointer; background: transparent;">
-      Reproducir
-    </button>
-
-    <audio id="reproductor-detalle" preload="auto"></audio>
-
-    <a href="paginamusica.html" class="boton">Música</a>
+    <div class="panel-reproductor-cancion">
+      <h1 id="titulo-cancion">La Mujer Que Bota Fuego</h1>
+      <audio id="reproductor-detalle" controls preload="metadata" src="../audio/Manuel Medrano - La Mujer que Bota Fuego (Audio Oficial).mp4"></audio>
+      <a href="paginamusica.html" class="boton">Volver a música</a>
+    </div>
   </main>
 
   <script src="../musica.js"></script>

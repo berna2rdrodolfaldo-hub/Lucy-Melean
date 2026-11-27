@@ -217,7 +217,7 @@ body {
 }
 .cuadro-musica.portada-blueandsoft {
   background-image: linear-gradient(rgba(10, 10, 10, 0.52), rgba(10, 10, 10, 0.65)),
-    url("../fondo/primavera.png");
+    url("../fondo/blueandsoft - album.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -227,7 +227,7 @@ body {
 .cuadro-musica.portada-blueandsoft:hover,
 .cuadro-musica.portada-blueandsoft.sonando {
   background-image: linear-gradient(rgba(10, 10, 10, 0.25), rgba(10, 10, 10, 0.35)),
-    url("../fondo/primavera.png");
+    url("../fondo/blueandsoft - album.png");
   color: #ffffff;
   border-color: #ffffff;
 }

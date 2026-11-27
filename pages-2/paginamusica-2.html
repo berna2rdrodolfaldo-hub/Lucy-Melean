@@ -7,6 +7,31 @@
   <link rel="stylesheet" href="../styles-css/global.css" />
   <link rel="stylesheet" href="../styles-css/musica.css" />
 </head>
+<style>
+  .cuadricula-musica {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(110px, 1fr));
+    gap: 16px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .cuadricula-musica .cuadro-musica {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    text-decoration: none;
+  }
+
+  @media (max-width: 900px) {
+    .cuadricula-musica {
+      grid-template-columns: repeat(3, minmax(95px, 1fr));
+    }
+  }
+</style>
 <body class="musica-vacia">
   <main class="contenedor-musica-vacia">
     <section class="grilla-21">

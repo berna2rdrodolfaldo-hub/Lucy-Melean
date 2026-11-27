@@ -28,6 +28,24 @@
       aspect-ratio: 1 / 1.05;
       border-radius: 16px;
       text-decoration: none;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .grid-musica .cuadro-musica::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.42);
+    }
+
+    .grid-musica .cuadro-musica .num,
+    .grid-musica .cuadro-musica .etiqueta {
+      position: relative;
+      z-index: 1;
+      color: #ffffff;
     }
 
     .grid-musica .cuadro-musica .num {
@@ -36,8 +54,10 @@
     }
 
     .grid-musica .cuadro-musica .etiqueta {
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin-top: 6px;
+      text-align: center;
+      padding: 0 8px;
     }
 
     @media (max-width: 1100px) {
@@ -56,89 +76,89 @@
 <body>
   <main class="contenedor-musica">
     <section class="grid-musica">
-      <a href="pagina-22.html" class="cuadro-musica" data-src="../audio-2/cancion-22.mp4">
+      <a href="pagina-22.html" class="cuadro-musica" style="background-image: url('../fondo-2/algocontigo-portada.png');" data-src="../audio-2/Algo Contigo.mp3">
         <span class="num">22</span>
-        <span class="etiqueta">Canción 22</span>
+        <span class="etiqueta">Algo Contigo</span>
       </a>
-      <a href="pagina-23.html" class="cuadro-musica" data-src="../audio-2/cancion-23.mp4">
+      <a href="pagina-23.html" class="cuadro-musica" style="background-image: url('../fondo-2/Atrapados en la red-portada.png');" data-src="../audio-2/Atrapados en la red.mp3">
         <span class="num">23</span>
-        <span class="etiqueta">Canción 23</span>
+        <span class="etiqueta">Atrapados en la red</span>
       </a>
-      <a href="pagina-24.html" class="cuadro-musica" data-src="../audio-2/cancion-24.mp4">
+      <a href="pagina-24.html" class="cuadro-musica" style="background-image: url('../fondo-2/Cada Vez Te Extraño Menos -portada.png');" data-src="../audio-2/Cada Vez Te Extraño Menos - Sebastián Romero ft. Daniel Me Estás Matando (video oficial).mp3">
         <span class="num">24</span>
-        <span class="etiqueta">Canción 24</span>
+        <span class="etiqueta">Cada Vez Te Extraño Menos</span>
       </a>
-      <a href="pagina-25.html" class="cuadro-musica" data-src="../audio-2/cancion-25.mp4">
+      <a href="pagina-25.html" class="cuadro-musica" style="background-image: url('../fondo-2/corazon-portada.png');" data-src="../audio-2/Corazón (Remasterized 2001).mp3">
         <span class="num">25</span>
-        <span class="etiqueta">Canción 25</span>
+        <span class="etiqueta">Corazón</span>
       </a>
-      <a href="pagina-26.html" class="cuadro-musica" data-src="../audio-2/cancion-26.mp4">
+      <a href="pagina-26.html" class="cuadro-musica" style="background-image: url('../fondo-2/best part H.E.R.png');" data-src="../audio-2/Daniel Caesar - Best Part (Audio) ft. H.E.R.mp3">
         <span class="num">26</span>
-        <span class="etiqueta">Canción 26</span>
+        <span class="etiqueta">Best Part</span>
       </a>
-      <a href="pagina-27.html" class="cuadro-musica" data-src="../audio-2/cancion-27.mp4">
+      <a href="pagina-27.html" class="cuadro-musica" style="background-image: url('../fondo-2/Daniel, Me Estás Matando - Es Verdad-portada.png');" data-src="../audio-2/Daniel, Me Estás Matando - Es Verdad (Video Oficial).mp3">
         <span class="num">27</span>
-        <span class="etiqueta">Canción 27</span>
+        <span class="etiqueta">Es Verdad</span>
       </a>
-      <a href="pagina-28.html" class="cuadro-musica" data-src="../audio-2/cancion-28.mp4">
+      <a href="pagina-28.html" class="cuadro-musica" style="background-image: url('../fondo-2/José José - Contigo en la Distancia-portada.png');" data-src="../audio-2/José José - Contigo en la Distancia (Cover Audio).mp3">
         <span class="num">28</span>
-        <span class="etiqueta">Canción 28</span>
+        <span class="etiqueta">Contigo en la Distancia</span>
       </a>
-      <a href="pagina-29.html" class="cuadro-musica" data-src="../audio-2/cancion-29.mp4">
+      <a href="pagina-29.html" class="cuadro-musica" style="background-image: url('../fondo-2/julieta.png');" data-src="../audio-2/Julieta.mp3">
         <span class="num">29</span>
-        <span class="etiqueta">Canción 29</span>
+        <span class="etiqueta">Julieta</span>
       </a>
-      <a href="pagina-30.html" class="cuadro-musica" data-src="../audio-2/cancion-30.mp4">
+      <a href="pagina-30.html" class="cuadro-musica" style="background-image: url('../fondo-2/Kevin Kaarl - Es Que Yo Te Quiero A Ti -portada.png');" data-src="../audio-2/Kevin Kaarl - Es Que Yo Te Quiero A Ti (Lyric Video).mp3">
         <span class="num">30</span>
-        <span class="etiqueta">Canción 30</span>
+        <span class="etiqueta">Es Que Yo Te Quiero A Ti</span>
       </a>
-      <a href="pagina-31.html" class="cuadro-musica" data-src="../audio-2/cancion-31.mp4">
+      <a href="pagina-31.html" class="cuadro-musica" style="background-image: url('../fondo-2/locotuformadeser-portada.png');" data-src="../audio-2/Los Auténticos decadentes - Loco tu forma de ser (DVD vivo Hecho en México HD.mp3">
         <span class="num">31</span>
-        <span class="etiqueta">Canción 31</span>
+        <span class="etiqueta">Loco tu forma de ser</span>
       </a>
-      <a href="pagina-32.html" class="cuadro-musica" data-src="../audio-2/cancion-32.mp4">
+      <a href="pagina-32.html" class="cuadro-musica" style="background-image: url('../fondo-2/sol-portada.png');" data-src="../audio-2/Willian - Sol (Video Lyrics).mp3">
         <span class="num">32</span>
-        <span class="etiqueta">Canción 32</span>
+        <span class="etiqueta">Sol</span>
       </a>
-      <a href="pagina-33.html" class="cuadro-musica" data-src="../audio-2/cancion-33.mp4">
+      <a href="pagina-33.html" class="cuadro-musica" style="background-image: url('../fondo-2/Sebastian Romero y Kevin Kaarl - Más y Más-portada.png');" data-src="../audio-2/Sebastian Romero y Kevin Kaarl - Más y Más.mp3">
         <span class="num">33</span>
-        <span class="etiqueta">Canción 33</span>
+        <span class="etiqueta">Más y Más</span>
       </a>
-      <a href="pagina-34.html" class="cuadro-musica" data-src="../audio-2/cancion-34.mp4">
+      <a href="pagina-34.html" class="cuadro-musica" style="background-image: url('../fondo-2/Mujer de Rizos-portada.png');" data-src="../audio-2/Mujer de Rizos.mp3">
         <span class="num">34</span>
-        <span class="etiqueta">Canción 34</span>
+        <span class="etiqueta">Mujer de Rizos</span>
       </a>
-      <a href="pagina-35.html" class="cuadro-musica" data-src="../audio-2/cancion-35.mp4">
+      <a href="pagina-35.html" class="cuadro-musica" style="background-image: url('../fondo-2/pupilaslejanas-portada.png');" data-src="../audio-2/Los Pericos - Pupilas Lejanas.mp3">
         <span class="num">35</span>
-        <span class="etiqueta">Canción 35</span>
+        <span class="etiqueta">Pupilas Lejanas</span>
       </a>
-      <a href="pagina-36.html" class="cuadro-musica" data-src="../audio-2/cancion-36.mp4">
+      <a href="pagina-36.html" class="cuadro-musica" style="background-image: url('../fondo-2/Luis Miguel - Tengo Todo Excepto A Ti -portada.png');" data-src="../audio-2/Luis Miguel - Tengo Todo Excepto A Ti (Video Con Letra).mp3">
         <span class="num">36</span>
-        <span class="etiqueta">Canción 36</span>
+        <span class="etiqueta">Tengo Todo Excepto A Ti</span>
       </a>
-      <a href="pagina-37.html" class="cuadro-musica" data-src="../audio-2/cancion-37.mp4">
+      <a href="pagina-37.html" class="cuadro-musica" style="background-image: url('../fondo-2/morocha-portada.png');" data-src="../audio-2/MILO J - MOROCHA (Video Oficial).mp3">
         <span class="num">37</span>
-        <span class="etiqueta">Canción 37</span>
+        <span class="etiqueta">MOROCHA</span>
       </a>
-      <a href="pagina-38.html" class="cuadro-musica" data-src="../audio-2/cancion-38.mp4">
+      <a href="pagina-38.html" class="cuadro-musica" style="background-image: url('../fondo-2/tusvueltas-portada.png');" data-src="../audio-2/MILO J - TUS VUELTAS (audio).mp3">
         <span class="num">38</span>
-        <span class="etiqueta">Canción 38</span>
+        <span class="etiqueta">TUS VUELTAS</span>
       </a>
-      <a href="pagina-39.html" class="cuadro-musica" data-src="../audio-2/cancion-39.mp4">
+      <a href="pagina-39.html" class="cuadro-musica" style="background-image: url('../fondo-2/Mon Laferte - Otra Noche de Llorar-portada.png');" data-src="../audio-2/Mon Laferte - Otra Noche de Llorar (Official Lyric Video).mp3">
         <span class="num">39</span>
-        <span class="etiqueta">Canción 39</span>
+        <span class="etiqueta">Otra Noche de Llorar</span>
       </a>
-      <a href="pagina-40.html" class="cuadro-musica" data-src="../audio-2/cancion-40.mp4">
+      <a href="pagina-40.html" class="cuadro-musica" style="background-image: url('../fondo-2/Sebastian Romero - Catorce - portada.png');" data-src="../audio-2/Sebastian Romero - Catorce (Letra).mp3">
         <span class="num">40</span>
-        <span class="etiqueta">Canción 40</span>
+        <span class="etiqueta">Catorce</span>
       </a>
-      <a href="pagina-41.html" class="cuadro-musica" data-src="../audio-2/cancion-41.mp4">
+      <a href="pagina-41.html" class="cuadro-musica" style="background-image: url('../fondo-2/quelalunasepa-portada.png');" data-src="../audio-2/solamentedan - que la luna sepa.mp3">
         <span class="num">41</span>
-        <span class="etiqueta">Canción 41</span>
+        <span class="etiqueta">que la luna sepa</span>
       </a>
-      <a href="pagina-42.html" class="cuadro-musica" data-src="../audio-2/cancion-42.mp4">
+      <a href="pagina-42.html" class="cuadro-musica" style="background-image: url('../fondo-2/seasons-portada.png');" data-src="../audio-2/wave to earth - seasons.mp3">
         <span class="num">42</span>
-        <span class="etiqueta">Canción 42</span>
+        <span class="etiqueta">seasons</span>
       </a>
     </section>
   </main>

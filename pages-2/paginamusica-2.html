@@ -7,128 +7,57 @@
   <link rel="stylesheet" href="../styles-css/global.css" />
   <link rel="stylesheet" href="../styles-css/musica.css" />
   <style>
-    .grid-musica {
-      display: grid;
-      grid-template-columns: repeat(7, minmax(150px, 1fr));
-      gap: 18px;
-      width: 100%;
-      max-width: 1520px;
-      margin: 32px auto;
-      padding: 0 24px;
-      box-sizing: border-box;
-    }
+   /* Borde dorado más notorio y brilloso para Sol (31), Más y Más (32) y Mujer de Rizos (33) */
+.grid-musica .cuadro-musica.cancion-especial-dorada {
+  border: 3.5px solid #ffe066;
+  box-shadow:
+    0 0 0 1.5px rgba(255, 241, 168, 0.85),
+    0 0 18px rgba(255, 213, 79, 0.9),
+    0 0 36px rgba(255, 179, 0, 0.55),
+    inset 0 0 12px rgba(255, 224, 102, 0.35);
+  overflow: visible;
+}
 
-    .grid-musica .cuadro-musica {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      min-height: 170px;
-      aspect-ratio: 1 / 1.05;
-      border-radius: 16px;
-      text-decoration: none;
-      background-size: cover;
-      background-position: center;
-      overflow: hidden;
-      position: relative;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
+.grid-musica .cuadro-musica.cancion-especial-dorada::before {
+  border-radius: 13px;
+}
 
-    .grid-musica .cuadro-musica::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.42);
-      z-index: 1;
-    }
+/* Rayos de sol al pasar el mouse */
+.grid-musica .cuadro-musica.cancion-especial-dorada::after {
+  content: "";
+  position: absolute;
+  inset: -26px;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(255, 235, 120, 0.85) 0deg 8deg,
+      rgba(255, 193, 7, 0.2) 8deg 18deg,
+      transparent 18deg 30deg
+    );
+  -webkit-mask-image: radial-gradient(circle, transparent 44%, #000 56%, rgba(0, 0, 0, 0.6) 74%, transparent 92%);
+  mask-image: radial-gradient(circle, transparent 44%, #000 56%, rgba(0, 0, 0, 0.6) 74%, transparent 92%);
+  opacity: 0;
+  transform: scale(0.85) rotate(0deg);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.28s ease, transform 0.35s ease;
+}
 
-    .grid-musica .cuadro-musica .num,
-    .grid-musica .cuadro-musica .etiqueta {
-      position: relative;
-      z-index: 2;
-      color: #ffffff;
-    }
+.grid-musica .cuadro-musica.cancion-especial-dorada:hover {
+  border-color: #fff3a1;
+  box-shadow:
+    0 0 0 2px #fff3a1,
+    0 0 24px rgba(255, 224, 102, 1),
+    0 0 48px rgba(255, 179, 0, 0.85),
+    inset 0 0 16px rgba(255, 235, 130, 0.5);
+}
 
-    .grid-musica .cuadro-musica .num {
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-
-    .grid-musica .cuadro-musica .etiqueta {
-      font-size: 0.85rem;
-      margin-top: 5px;
-      text-align: center;
-      padding: 0 8px;
-    }
-
-    /* Borde dorado para Sol (31), Más y Más (32) y Mujer de Rizos (33) */
-    .grid-musica .cuadro-musica.cancion-especial-dorada {
-      border: 2.5px solid #ffd54f;
-      box-shadow:
-        0 0 14px rgba(255, 213, 79, 0.55),
-        0 0 28px rgba(255, 179, 0, 0.25);
-      overflow: visible;
-    }
-
-    .grid-musica .cuadro-musica.cancion-especial-dorada::before {
-      border-radius: 14px;
-    }
-
-    /* Rayos de sol al pasar el mouse */
-    .grid-musica .cuadro-musica.cancion-especial-dorada::after {
-      content: "";
-      position: absolute;
-      inset: -26px;
-      border-radius: 50%;
-      background:
-        repeating-conic-gradient(
-          from 0deg,
-          rgba(255, 230, 110, 0.72) 0deg 8deg,
-          rgba(255, 193, 7, 0.14) 8deg 18deg,
-          transparent 18deg 30deg
-        );
-      -webkit-mask-image: radial-gradient(circle, transparent 44%, #000 56%, rgba(0, 0, 0, 0.55) 74%, transparent 92%);
-      mask-image: radial-gradient(circle, transparent 44%, #000 56%, rgba(0, 0, 0, 0.55) 74%, transparent 92%);
-      opacity: 0;
-      transform: scale(0.85) rotate(0deg);
-      pointer-events: none;
-      z-index: 0;
-      transition: opacity 0.28s ease, transform 0.35s ease;
-    }
-
-    .grid-musica .cuadro-musica.cancion-especial-dorada:hover {
-      box-shadow:
-        0 0 18px rgba(255, 224, 102, 0.95),
-        0 0 38px rgba(255, 179, 0, 0.65);
-    }
-
-    .grid-musica .cuadro-musica.cancion-especial-dorada:hover::after {
-      opacity: 1;
-      transform: scale(1.08) rotate(25deg);
-      animation: girarRayosSol 7s linear infinite;
-    }
-
-    @keyframes girarRayosSol {
-      from {
-        transform: scale(1.08) rotate(0deg);
-      }
-      to {
-        transform: scale(1.08) rotate(360deg);
-      }
-    }
-
-    @media (max-width: 1100px) {
-      .grid-musica {
-        grid-template-columns: repeat(4, minmax(120px, 1fr));
-      }
-    }
-
-    @media (max-width: 700px) {
-      .grid-musica {
-        grid-template-columns: repeat(3, minmax(95px, 1fr));
-      }
-    }
+.grid-musica .cuadro-musica.cancion-especial-dorada:hover::after {
+  opacity: 1;
+  transform: scale(1.08) rotate(25deg);
+  animation: girarRayosSol 7s linear infinite;
+}
   </style>
 </head>
 <body>

@@ -32,6 +32,7 @@
       background-position: center;
       overflow: hidden;
       position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .grid-musica .cuadro-musica::before {
@@ -39,12 +40,13 @@
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.42);
+      z-index: 1;
     }
 
     .grid-musica .cuadro-musica .num,
     .grid-musica .cuadro-musica .etiqueta {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       color: #ffffff;
     }
 
@@ -58,6 +60,62 @@
       margin-top: 5px;
       text-align: center;
       padding: 0 8px;
+    }
+
+    /* Borde dorado para Sol (31), Más y Más (32) y Mujer de Rizos (33) */
+    .grid-musica .cuadro-musica.cancion-especial-dorada {
+      border: 2.5px solid #ffd54f;
+      box-shadow:
+        0 0 14px rgba(255, 213, 79, 0.55),
+        0 0 28px rgba(255, 179, 0, 0.25);
+      overflow: visible;
+    }
+
+    .grid-musica .cuadro-musica.cancion-especial-dorada::before {
+      border-radius: 14px;
+    }
+
+    /* Rayos de sol al pasar el mouse */
+    .grid-musica .cuadro-musica.cancion-especial-dorada::after {
+      content: "";
+      position: absolute;
+      inset: -26px;
+      border-radius: 50%;
+      background:
+        repeating-conic-gradient(
+          from 0deg,
+          rgba(255, 230, 110, 0.72) 0deg 8deg,
+          rgba(255, 193, 7, 0.14) 8deg 18deg,
+          transparent 18deg 30deg
+        );
+      -webkit-mask-image: radial-gradient(circle, transparent 44%, #000 56%, rgba(0, 0, 0, 0.55) 74%, transparent 92%);
+      mask-image: radial-gradient(circle, transparent 44%, #000 56%, rgba(0, 0, 0, 0.55) 74%, transparent 92%);
+      opacity: 0;
+      transform: scale(0.85) rotate(0deg);
+      pointer-events: none;
+      z-index: 0;
+      transition: opacity 0.28s ease, transform 0.35s ease;
+    }
+
+    .grid-musica .cuadro-musica.cancion-especial-dorada:hover {
+      box-shadow:
+        0 0 18px rgba(255, 224, 102, 0.95),
+        0 0 38px rgba(255, 179, 0, 0.65);
+    }
+
+    .grid-musica .cuadro-musica.cancion-especial-dorada:hover::after {
+      opacity: 1;
+      transform: scale(1.08) rotate(25deg);
+      animation: girarRayosSol 7s linear infinite;
+    }
+
+    @keyframes girarRayosSol {
+      from {
+        transform: scale(1.08) rotate(0deg);
+      }
+      to {
+        transform: scale(1.08) rotate(360deg);
+      }
     }
 
     @media (max-width: 1100px) {
@@ -112,15 +170,15 @@
         <span class="num">30</span>
         <span class="etiqueta">Es Que Yo Te Quiero A Ti</span>
       </a>
-      <a href="pagina-31.html" class="cuadro-musica" style="background-image: url('../fondo-2/sol-portada.png');" data-src="../audio-2/Willian - Sol (Video Lyrics).mp3">
+      <a href="pagina-31.html" class="cuadro-musica cancion-especial-dorada" style="background-image: url('../fondo-2/sol-portada.png');" data-src="../audio-2/Willian - Sol (Video Lyrics).mp3">
         <span class="num">31</span>
         <span class="etiqueta">Sol</span>
       </a>
-      <a href="pagina-32.html" class="cuadro-musica" style="background-image: url('../fondo-2/Sebastian Romero y Kevin Kaarl - Más y Más-portada.png');" data-src="../audio-2/Sebastian Romero y Kevin Kaarl - Más y Más.mp3">
+      <a href="pagina-32.html" class="cuadro-musica cancion-especial-dorada" style="background-image: url('../fondo-2/Sebastian Romero y Kevin Kaarl - Más y Más-portada.png');" data-src="../audio-2/Sebastian Romero y Kevin Kaarl - Más y Más.mp3">
         <span class="num">32</span>
         <span class="etiqueta">Más y Más</span>
       </a>
-      <a href="pagina-33.html" class="cuadro-musica" style="background-image: url('../fondo-2/Mujer de Rizos-portada.png');" data-src="../audio-2/Mujer de Rizos.mp3">
+      <a href="pagina-33.html" class="cuadro-musica cancion-especial-dorada" style="background-image: url('../fondo-2/Mujer de Rizos-portada.png');" data-src="../audio-2/Mujer de Rizos.mp3">
         <span class="num">33</span>
         <span class="etiqueta">Mujer de Rizos</span>
       </a>

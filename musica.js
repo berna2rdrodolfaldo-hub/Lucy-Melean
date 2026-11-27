@@ -114,16 +114,29 @@ document.addEventListener('DOMContentLoaded', () => {
       document.title ||
       '';
 
-    const rutaImg = obtenerRutaImagenCancion(referencia);
+    const srcActual = imgCancionDetalle.getAttribute('src') || '';
+    const esSeccionDos =
+      window.location.pathname.includes('/pages-2/') ||
+      srcActual.includes('../fondo-2/');
 
-    if (rutaImg) {
-      imgCancionDetalle.src = encodeURI(rutaImg);
+    if (esSeccionDos && srcActual) {
+      imgCancionDetalle.src = encodeURI(srcActual);
       imgCancionDetalle.style.display = 'block';
       imgCancionDetalle.onerror = () => {
         imgCancionDetalle.style.display = 'none';
       };
     } else {
-      imgCancionDetalle.style.display = 'none';
+      const rutaImg = obtenerRutaImagenCancion(referencia);
+
+      if (rutaImg) {
+        imgCancionDetalle.src = encodeURI(rutaImg);
+        imgCancionDetalle.style.display = 'block';
+        imgCancionDetalle.onerror = () => {
+          imgCancionDetalle.style.display = 'none';
+        };
+      } else {
+        imgCancionDetalle.style.display = 'none';
+      }
     }
   }
 

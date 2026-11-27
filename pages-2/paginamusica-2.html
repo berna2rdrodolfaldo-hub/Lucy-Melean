@@ -99,5 +99,50 @@
 
   <audio id="reproductor"></audio>
   <script src="../musica.js"></script>
+  <style>
+  .cuadricula-musica {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(145px, 1fr));
+    gap: 18px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 36px auto;
+    padding: 0 28px;
+    box-sizing: border-box;
+  }
+
+  .cuadricula-musica .cuadro-musica {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1.05;
+    min-height: 155px;
+    border-radius: 16px;
+    text-decoration: none;
+  }
+
+  .cuadricula-musica .cuadro-musica .num {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  .cuadricula-musica .cuadro-musica .etiqueta {
+    font-size: 1rem;
+    margin-top: 6px;
+  }
+
+  @media (max-width: 1100px) {
+    .cuadricula-musica {
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .cuadricula-musica {
+      grid-template-columns: repeat(3, minmax(95px, 1fr));
+    }
+  }
+</style>
 </body>
 </html>

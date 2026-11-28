@@ -144,7 +144,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (audioDetalle && btnControl) {
     btnControl.addEventListener('click', () => {
-      if (!audioDetalle.getAttribute('src')) return;
+      const srcAudio = audioDetalle.getAttribute('src');
+      if (!srcAudio) return;
+      const srcCodificado = encodeURI(srcAudio);
+      if (audioDetalle.getAttribute('src') !== srcCodificado) {
+        audioDetalle.setAttribute('src', srcCodificado);
+      }
 
       if (audioDetalle.paused) {
         audioDetalle
@@ -174,4 +179,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
 

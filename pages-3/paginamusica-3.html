@@ -28,91 +28,306 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
     }
   </style>
+  <style id="efectos-especiales-3">
+    .cuadro-musica[data-num] {
+      position: relative;
+      overflow: visible;
+    }
+
+    /* 53: Borde rojo + efecto tipo fuego */
+    .cuadro-musica[data-num="53"] {
+      border: 2px solid #ff2424 !important;
+      box-shadow: 0 0 18px rgba(255, 36, 36, 0.75), 0 0 36px rgba(255, 110, 0, 0.45);
+      animation: fuegoPulso53 1.4s ease-in-out infinite alternate;
+    }
+    .cuadro-musica[data-num="53"]::after {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: inherit;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 100%, rgba(255, 80, 0, 0.55), rgba(255, 20, 20, 0.18) 55%, transparent 75%);
+      filter: blur(8px);
+      z-index: -1;
+      animation: llamaAura53 1.1s ease-in-out infinite alternate;
+    }
+    .particula-fuego {
+      position: absolute;
+      bottom: 2px;
+      width: 10px;
+      height: 14px;
+      border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+      background: radial-gradient(circle at 50% 70%, #fff176, #ff6d00 55%, #d50000 100%);
+      pointer-events: none;
+      z-index: 6;
+      filter: blur(0.4px);
+      animation: subirFuego 1.15s ease-out infinite;
+    }
+    @keyframes fuegoPulso53 {
+      0% { box-shadow: 0 0 14px rgba(255, 30, 30, 0.7), 0 0 28px rgba(255, 90, 0, 0.4); }
+      100% { box-shadow: 0 0 24px rgba(255, 50, 50, 0.95), 0 0 44px rgba(255, 140, 0, 0.65); }
+    }
+    @keyframes llamaAura53 {
+      0% { transform: translateY(0) scaleY(0.96); opacity: 0.75; }
+      100% { transform: translateY(-4px) scaleY(1.06); opacity: 1; }
+    }
+    @keyframes subirFuego {
+      0% { transform: translateY(4px) scale(0.75); opacity: 0.95; }
+      60% { opacity: 0.85; }
+      100% { transform: translateY(-34px) scale(0.2); opacity: 0; }
+    }
+
+    /* 54: Verde + triangulos blancos alrededor del cubo */
+    .cuadro-musica[data-num="54"] {
+      border: 2px solid #29ff7a !important;
+      box-shadow: 0 0 18px rgba(41, 255, 122, 0.65), inset 0 0 14px rgba(41, 255, 122, 0.25);
+    }
+    .triangulo-blanco-54 {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 11px solid #ffffff;
+      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9));
+      pointer-events: none;
+      z-index: 6;
+      animation: flotarTriangulo54 2.4s ease-in-out infinite;
+    }
+    @keyframes flotarTriangulo54 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg) scale(0.95); opacity: 0.85; }
+      50% { transform: translate(var(--dx, 5px), var(--dy, -7px)) rotate(25deg) scale(1.12); opacity: 1; }
+    }
+
+    /* 52: Brillo tipo diamante */
+    .cuadro-musica[data-num="52"] {
+      border: 2px solid rgba(210, 248, 255, 0.9) !important;
+      box-shadow: 0 0 20px rgba(150, 235, 255, 0.75), 0 0 36px rgba(255, 255, 255, 0.35);
+      overflow: hidden;
+    }
+    .cuadro-musica[data-num="52"]::before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      left: -75%;
+      width: 55%;
+      height: 180%;
+      background: linear-gradient(
+        115deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.15) 38%,
+        rgba(215, 250, 255, 0.85) 50%,
+        rgba(255, 255, 255, 0.15) 62%,
+        transparent 80%
+      );
+      transform: skewX(-20deg);
+      pointer-events: none;
+      z-index: 4;
+      animation: destelloDiamante52 2.6s ease-in-out infinite;
+    }
+    @keyframes destelloDiamante52 {
+      0% { left: -75%; opacity: 0; }
+      20% { opacity: 1; }
+      65% { left: 135%; opacity: 0.95; }
+      100% { left: 135%; opacity: 0; }
+    }
+
+    /* 59: Brilla y salen estrellas */
+    .cuadro-musica[data-num="59"] {
+      border: 2px solid rgba(255, 244, 175, 0.92) !important;
+      box-shadow: 0 0 22px rgba(255, 230, 110, 0.8), 0 0 42px rgba(255, 255, 210, 0.45);
+      animation: brilloEstelar59 1.8s ease-in-out infinite alternate;
+    }
+    .estrella-59 {
+      position: absolute;
+      color: #fff6a8;
+      font-size: 14px;
+      line-height: 1;
+      text-shadow: 0 0 8px #ffffff, 0 0 16px #ffd54f;
+      pointer-events: none;
+      z-index: 6;
+      animation: titilarEstrella59 1.8s ease-in-out infinite;
+    }
+    @keyframes brilloEstelar59 {
+      0% { box-shadow: 0 0 16px rgba(255, 225, 100, 0.65), 0 0 30px rgba(255, 255, 220, 0.3); }
+      100% { box-shadow: 0 0 28px rgba(255, 240, 140, 0.95), 0 0 48px rgba(255, 255, 255, 0.65); }
+    }
+    @keyframes titilarEstrella59 {
+      0%, 100% { transform: scale(0.75) rotate(0deg); opacity: 0.45; }
+      50% { transform: scale(1.25) rotate(22deg); opacity: 1; }
+    }
+
+    /* 51: Blanco y tipo brillo lunar */
+    .cuadro-musica[data-num="51"] {
+      border: 2px solid rgba(255, 255, 255, 0.95) !important;
+      box-shadow: 0 0 22px rgba(235, 245, 255, 0.85), 0 0 44px rgba(200, 225, 255, 0.45);
+      animation: brilloLunar51 2.5s ease-in-out infinite alternate;
+    }
+    .cuadro-musica[data-num="51"]::after {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border-radius: inherit;
+      background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.45), rgba(215, 232, 255, 0.14) 55%, transparent 75%);
+      pointer-events: none;
+      z-index: -1;
+      animation: haloLunar51 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes brilloLunar51 {
+      0% { box-shadow: 0 0 16px rgba(235, 245, 255, 0.65), 0 0 30px rgba(200, 225, 255, 0.35); }
+      100% { box-shadow: 0 0 28px rgba(255, 255, 255, 0.95), 0 0 52px rgba(220, 238, 255, 0.65); }
+    }
+    @keyframes haloLunar51 {
+      0% { opacity: 0.65; transform: scale(0.98); }
+      100% { opacity: 1; transform: scale(1.03); }
+    }
+  </style>
+  <script id="particulas-especiales-3">
+    document.addEventListener("DOMContentLoaded", () => {
+      const card53 = document.querySelector('.cuadro-musica[data-num="53"]');
+      if (card53) {
+        for (let i = 0; i < 7; i++) {
+          const llama = document.createElement("span");
+          llama.className = "particula-fuego";
+          llama.style.left = (12 + i * 13) + "%";
+          llama.style.animationDelay = (i * 0.16) + "s";
+          card53.appendChild(llama);
+        }
+      }
+
+      const card54 = document.querySelector('.cuadro-musica[data-num="54"]');
+      if (card54) {
+        const posiciones = [
+          { top: "-8px", left: "12%", dx: "-4px", dy: "-6px", delay: "0s" },
+          { top: "-8px", right: "12%", dx: "4px", dy: "-6px", delay: "0.4s" },
+          { top: "35%", left: "-10px", dx: "-6px", dy: "3px", delay: "0.8s" },
+          { top: "35%", right: "-10px", dx: "6px", dy: "-3px", delay: "1.2s" },
+          { bottom: "-8px", left: "22%", dx: "-3px", dy: "6px", delay: "1.6s" },
+          { bottom: "-8px", right: "22%", dx: "3px", dy: "6px", delay: "2s" }
+        ];
+        posiciones.forEach((p) => {
+          const tri = document.createElement("span");
+          tri.className = "triangulo-blanco-54";
+          if (p.top) tri.style.top = p.top;
+          if (p.bottom) tri.style.bottom = p.bottom;
+          if (p.left) tri.style.left = p.left;
+          if (p.right) tri.style.right = p.right;
+          tri.style.setProperty("--dx", p.dx);
+          tri.style.setProperty("--dy", p.dy);
+          tri.style.animationDelay = p.delay;
+          card54.appendChild(tri);
+        });
+      }
+
+      const card59 = document.querySelector('.cuadro-musica[data-num="59"]');
+      if (card59) {
+        const estrellas = [
+          { top: "-8px", left: "10%", delay: "0s" },
+          { top: "-9px", right: "10%", delay: "0.35s" },
+          { top: "28%", left: "-9px", delay: "0.7s" },
+          { top: "28%", right: "-9px", delay: "1.05s" },
+          { bottom: "-8px", left: "18%", delay: "1.4s" },
+          { bottom: "-8px", right: "18%", delay: "1.75s" }
+        ];
+        estrellas.forEach((s) => {
+          const est = document.createElement("span");
+          est.className = "estrella-59";
+          est.textContent = "✦";
+          if (s.top) est.style.top = s.top;
+          if (s.bottom) est.style.bottom = s.bottom;
+          if (s.left) est.style.left = s.left;
+          if (s.right) est.style.right = s.right;
+          est.style.animationDelay = s.delay;
+          card59.appendChild(est);
+        });
+      }
+    });
+  </script>
 </head>
 <body>
   <main class="contenedor-musica">
     <section class="grid-musica">
-      <a href="pagina-43.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/20260123-portada.png');" data-src="../audio-3/20260123.mp3">
+      <a href="pagina-43.html" class="cuadro-musica cuadro-portada-3" data-num="43" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/20260123-portada.png');" data-src="../audio-3/20260123.mp3">
         <span class="num">43</span>
         <span class="etiqueta">20260123</span>
       </a>
-      <a href="pagina-44.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/amame-portada.png');" data-src="../audio-3/Ámame.mp3">
+      <a href="pagina-44.html" class="cuadro-musica cuadro-portada-3" data-num="44" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/amame-portada.png');" data-src="../audio-3/Ámame.mp3">
         <span class="num">44</span>
         <span class="etiqueta">Ámame</span>
       </a>
-      <a href="pagina-45.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/como tu -portada.png');" data-src="../audio-3/Como Tú (Magic Music Box).mp3">
+      <a href="pagina-45.html" class="cuadro-musica cuadro-portada-3" data-num="45" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/como tu -portada.png');" data-src="../audio-3/Como Tú (Magic Music Box).mp3">
         <span class="num">45</span>
         <span class="etiqueta">Como Tú</span>
       </a>
-      <a href="pagina-46.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/always-portada.png');" data-src="../audio-3/Daniel Caesar - Always (Official Audio).mp3">
+      <a href="pagina-46.html" class="cuadro-musica cuadro-portada-3" data-num="46" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/always-portada.png');" data-src="../audio-3/Daniel Caesar - Always (Official Audio).mp3">
         <span class="num">46</span>
         <span class="etiqueta">Always</span>
       </a>
-      <a href="pagina-47.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/japanese demin-portada.png');" data-src="../audio-3/Daniel Caesar - Japanese Denim (Lyric Video).mp3">
+      <a href="pagina-47.html" class="cuadro-musica cuadro-portada-3" data-num="47" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/japanese demin-portada.png');" data-src="../audio-3/Daniel Caesar - Japanese Denim (Lyric Video).mp3">
         <span class="num">47</span>
         <span class="etiqueta">Japanese Denim</span>
       </a>
-      <a href="pagina-48.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/te amo y mas -portada.png');" data-src="../audio-3/El Libro De La Vida - Te Amo Y Más (By Diego Luna) (Letra).mp3">
+      <a href="pagina-48.html" class="cuadro-musica cuadro-portada-3" data-num="48" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/te amo y mas -portada.png');" data-src="../audio-3/El Libro De La Vida - Te Amo Y Más (By Diego Luna) (Letra).mp3">
         <span class="num">48</span>
         <span class="etiqueta">Te Amo Y Más</span>
       </a>
-      <a href="pagina-49.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/si no te tengo a ti-portada.png');" data-src="../audio-3/Hombres G - Si no te tengo a ti (Audio Oficial).mp3">
+      <a href="pagina-49.html" class="cuadro-musica cuadro-portada-3" data-num="49" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/si no te tengo a ti-portada.png');" data-src="../audio-3/Hombres G - Si no te tengo a ti (Audio Oficial).mp3">
         <span class="num">49</span>
         <span class="etiqueta">Si No Te Tengo A Ti</span>
       </a>
-      <a href="pagina-50.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/todo cambio-portada.png');" data-src="../audio-3/Camila - Todo Cambio (Official Video).mp3">
+      <a href="pagina-50.html" class="cuadro-musica cuadro-portada-3" data-num="50" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/todo cambio-portada.png');" data-src="../audio-3/Camila - Todo Cambio (Official Video).mp3">
         <span class="num">50</span>
         <span class="etiqueta">Todo Cambio</span>
       </a>
-      <a href="pagina-51.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/que locura enamorarme de ti portada.png');" data-src="../audio-3/Eddie Santiago - Que Locura Enamorarme De Ti (Letra).mp3">
+      <a href="pagina-51.html" class="cuadro-musica cuadro-portada-3 fx-lunar-51" data-num="51" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/que locura enamorarme de ti portada.png');" data-src="../audio-3/Eddie Santiago - Que Locura Enamorarme De Ti (Letra).mp3">
         <span class="num">51</span>
         <span class="etiqueta">Que Locura Enamorarme De Ti</span>
       </a>
-      <a href="pagina-52.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/me gusta todo de ti-portada.png');" data-src="../audio-3/Noche de Brujas - Me Gusta Todo de Ti [Video Oficial].mp3">
+      <a href="pagina-52.html" class="cuadro-musica cuadro-portada-3 fx-diamante-52" data-num="52" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/me gusta todo de ti-portada.png');" data-src="../audio-3/Noche de Brujas - Me Gusta Todo de Ti [Video Oficial].mp3">
         <span class="num">52</span>
         <span class="etiqueta">Me Gusta Todo De Ti</span>
       </a>
-      <a href="pagina-53.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/a dios le pido-portada.png');" data-src="../audio-3/Juanes - A Dios Le Pido Letra.mp3">
+      <a href="pagina-53.html" class="cuadro-musica cuadro-portada-3 fx-fuego-53" data-num="53" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/a dios le pido-portada.png');" data-src="../audio-3/Juanes - A Dios Le Pido Letra.mp3">
         <span class="num">53</span>
         <span class="etiqueta">A Dios Le Pido</span>
       </a>
-      <a href="pagina-54.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/el ataque de las chicas cocodrilo-portada.png');" data-src="../audio-3/Hombres G — El Ataque de las Chicas Cocodrilo [Letra].mp3">
+      <a href="pagina-54.html" class="cuadro-musica cuadro-portada-3 fx-triangulos-54" data-num="54" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/el ataque de las chicas cocodrilo-portada.png');" data-src="../audio-3/Hombres G — El Ataque de las Chicas Cocodrilo [Letra].mp3">
         <span class="num">54</span>
         <span class="etiqueta">El Ataque De Las Chicas Cocodrilo</span>
       </a>
-      <a href="pagina-55.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/razones complicadas-portada.png');" data-src="../audio-3/Sunny Senpai - Razones Complicadas (Vizualizer).mp3">
+      <a href="pagina-55.html" class="cuadro-musica cuadro-portada-3" data-num="55" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/razones complicadas-portada.png');" data-src="../audio-3/Sunny Senpai - Razones Complicadas (Vizualizer).mp3">
         <span class="num">55</span>
         <span class="etiqueta">Razones Complicadas</span>
       </a>
-      <a href="pagina-56.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/vivir asi es morir de amor-portada.png');" data-src="../audio-3/Camilo Sesto - Vivir Así Es Morir de Amor (Lyric Video).mp3">
+      <a href="pagina-56.html" class="cuadro-musica cuadro-portada-3" data-num="56" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/vivir asi es morir de amor-portada.png');" data-src="../audio-3/Camilo Sesto - Vivir Así Es Morir de Amor (Lyric Video).mp3">
         <span class="num">56</span>
         <span class="etiqueta">Vivir Así Es Morir De Amor</span>
       </a>
-      <a href="pagina-57.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/me va a costar-portada.png');" data-src="../audio-3/Kevin Kaarl - me va a costar (Video Oficial).mp3">
+      <a href="pagina-57.html" class="cuadro-musica cuadro-portada-3" data-num="57" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/me va a costar-portada.png');" data-src="../audio-3/Kevin Kaarl - me va a costar (Video Oficial).mp3">
         <span class="num">57</span>
         <span class="etiqueta">Me Va A Costar</span>
       </a>
-      <a href="pagina-58.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/let you break my heart again-portada.png');" data-src="../audio-3/laufey-let-you-break-my-heart-again.mp3">
+      <a href="pagina-58.html" class="cuadro-musica cuadro-portada-3" data-num="58" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/let you break my heart again-portada.png');" data-src="../audio-3/laufey-let-you-break-my-heart-again.mp3">
         <span class="num">58</span>
         <span class="etiqueta">Let You Break My Heart Again</span>
       </a>
-      <a href="pagina-59.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/ma belle evangeline-portada.png');" data-src="../audio-3/Ma Belle Evangeline - Letra Latino.mp3">
+      <a href="pagina-59.html" class="cuadro-musica cuadro-portada-3 fx-estrellas-59" data-num="59" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/ma belle evangeline-portada.png');" data-src="../audio-3/Ma Belle Evangeline - Letra Latino.mp3">
         <span class="num">59</span>
         <span class="etiqueta">Ma Belle Evangeline</span>
       </a>
-      <a href="pagina-60.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/reik-portada.png');" data-src="../audio-3/Reik - Noviembre Sin Ti (Video).mp3">
+      <a href="pagina-60.html" class="cuadro-musica cuadro-portada-3" data-num="60" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/reik-portada.png');" data-src="../audio-3/Reik - Noviembre Sin Ti (Video).mp3">
         <span class="num">60</span>
         <span class="etiqueta">Noviembre Sin Ti</span>
       </a>
-      <a href="pagina-61.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/reik-portada.png');" data-src="../audio-3/Reik - Yo Quisiera (Video).mp3">
+      <a href="pagina-61.html" class="cuadro-musica cuadro-portada-3" data-num="61" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/reik-portada.png');" data-src="../audio-3/Reik - Yo Quisiera (Video).mp3">
         <span class="num">61</span>
         <span class="etiqueta">Yo Quisiera</span>
       </a>
-      <a href="pagina-62.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/dia de enero-portada.png');" data-src="../audio-3/Shakira - Día de Enero (Official HD Video).mp3">
+      <a href="pagina-62.html" class="cuadro-musica cuadro-portada-3" data-num="62" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/dia de enero-portada.png');" data-src="../audio-3/Shakira - Día de Enero (Official HD Video).mp3">
         <span class="num">62</span>
         <span class="etiqueta">Día De Enero</span>
       </a>
-      <a href="pagina-63.html" class="cuadro-musica cuadro-portada-3" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/missin something-portada.png');" data-src="../audio-3/Zach Templar - missin something (official video).mp3">
+      <a href="pagina-63.html" class="cuadro-musica cuadro-portada-3" data-num="63" style="background-image: linear-gradient(to top, rgba(10, 12, 18, 0.86) 0%, rgba(10, 12, 18, 0.25) 55%, rgba(10, 12, 18, 0.15) 100%), url('../fondo-3/missin something-portada.png');" data-src="../audio-3/Zach Templar - missin something (official video).mp3">
         <span class="num">63</span>
         <span class="etiqueta">Missin Something</span>
       </a>
@@ -128,4 +343,5 @@
   <script src="../musica.js"></script>
 </body>
 </html>
+
 

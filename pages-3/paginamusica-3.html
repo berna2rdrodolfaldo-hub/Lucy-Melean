@@ -360,8 +360,45 @@
 
   <audio id="reproductor"></audio>
   <script src="../musica.js"></script>
+  <script id="hover-preview-3">
+    document.addEventListener("DOMContentLoaded", () => {
+      const audioPlayer = document.getElementById("reproductor");
+      const cuadros = document.querySelectorAll('.grid-musica .cuadro-musica[data-src]');
+      if (!audioPlayer || !cuadros.length) return;
+
+      let hoverTimer = null;
+
+      cuadros.forEach((cuadro) => {
+        cuadro.addEventListener("mouseenter", () => {
+          const rawSrc = cuadro.getAttribute("data-src");
+          if (!rawSrc) return;
+          clearTimeout(hoverTimer);
+          hoverTimer = setTimeout(() => {
+            const encodedSrc = encodeURI(rawSrc);
+            if (audioPlayer.getAttribute("src") !== encodedSrc) {
+              audioPlayer.src = encodedSrc;
+              audioPlayer.load();
+            }
+            audioPlayer.currentTime = 0;
+            const playPromise = audioPlayer.play();
+            if (playPromise && typeof playPromise.catch === "function") {
+              playPromise.catch(() => {});
+            }
+          }, 120);
+        });
+
+        cuadro.addEventListener("mouseleave", () => {
+          clearTimeout(hoverTimer);
+          if (!audioPlayer.paused) {
+            audioPlayer.pause();
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
 
 
 

@@ -1,4 +1,4 @@
-const cuadros = document.querySelectorAll('.cuadro-musica');
+﻿const cuadros = document.querySelectorAll('.cuadro-musica');
 const audio = document.getElementById('reproductor');
 
 // 1. Cuadrícula principal (paginamusica.html)
@@ -117,7 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const srcActual = imgCancionDetalle.getAttribute('src') || '';
     const esSeccionDos =
       window.location.pathname.includes('/pages-2/') ||
-      srcActual.includes('../fondo-2/');
+      window.location.pathname.includes('/pages-3/') ||
+      srcActual.includes('../fondo-2/') ||
+      srcActual.includes('../fondo-3/');
 
     if (esSeccionDos && srcActual) {
       imgCancionDetalle.src = encodeURI(srcActual);
@@ -172,3 +174,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+

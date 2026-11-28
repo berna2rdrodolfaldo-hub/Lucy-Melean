@@ -7,32 +7,41 @@
   <link rel="stylesheet" href="../styles-css/global.css" />
   <link rel="stylesheet" href="../styles-css/musica.css" />
   <style>
-        .grid-musica {
-      grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
-      gap: 14px;
+            .contenedor-musica {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .grid-musica {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      width: 100%;
     }
     .cuadro-portada-3 {
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      aspect-ratio: 4 / 3;
-      min-height: 112px;
-      max-height: 145px;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      height: auto;
+      max-height: none;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
       text-align: center;
-      padding: 8px 10px;
+      padding: 10px;
+      border-radius: 14px;
       overflow: hidden;
     }
     .cuadro-portada-3 .num {
-      font-size: 0.95rem;
-      line-height: 1.1;
+      font-size: 1rem;
+      line-height: 1.15;
     }
     .cuadro-portada-3 .etiqueta {
-      font-size: 0.8rem;
-      line-height: 1.15;
+      font-size: 0.82rem;
+      line-height: 1.2;
       max-width: 100%;
       word-break: break-word;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.92);
@@ -353,6 +362,7 @@
   <script src="../musica.js"></script>
 </body>
 </html>
+
 
 
 
